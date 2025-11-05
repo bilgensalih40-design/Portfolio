@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SALİH BİLGEN</title>
+    <title>Salih Bilgen - Web Geliştirici</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,16 @@
 </head>
 <body>
     <!-- Navigation -->
+    <!-- Page Loader -->
+    <div id="pageLoader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-text">Salih Bilgen</div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">Salih Bilgen</div>
                 <ul class="nav-menu">
                     <li><a href="#home" data-i18n="nav.home">Ana Sayfa</a></li>
                     <li><a href="#timeline" data-i18n="nav.timeline">Zaman Çizelgesi</a></li>
@@ -50,9 +56,11 @@
                 <h1 class="hero-title">Salih Bilgen</h1>
                 <p class="hero-subtitle" data-i18n="hero.subtitle">Yönetim Bilişim Sistemleri Öğrencisi</p>
                 <p class="hero-description" data-i18n="hero.description">
-                    Ben Salih Bilgen, Yönetim Bilişim Sistemleri öğrencisiyim. Eğitimim sırasında edindiğim teorik bilgileri, C# ve SQL kullanarak projeler geliştirerek pratiğe döküyorum.
-                   Sadece kod yazmakla kalmayıp, teknolojinin iş dünyasındaki rolünü de derinden anlamak için kendimi iş analistliği ve yapay zekâ alanlarında aktif olarak geliştiriyorum.
-                    Hedefim, yazılım bilgimle iş süreçleri arasındaki köprüyü kurmak ve teknoloji odaklı çözümler üreterek iş dünyasına değer katmaktır. Bu doğrultuda, sürekli öğrenmeye ve yeni gelişmeleri araştırmaya açık bir profesyonel olarak kariyerimi inşa ediyorum.
+                    Ben Salih Bilgen. Yönetim Bilişim Sistemleri öğrencisiyim.<br>
+                    Eğitimimde edindiğim bilgileri projeler geliştirerek uyguluyorum.<br>
+                    Teknolojinin iş dünyasındaki etkisini anlamak için iş analistliği ve yapay zekâ konularında kendimi geliştiriyorum.<br>
+                    Amacım, yazılım bilgimle iş süreçlerini birleştirip teknolojiyle değer üreten çözümler geliştirmek.<br>
+                    Sürekli öğrenmeye açık biri olarak kariyerimi bu yönde ilerletiyorum.
                 </p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/salih-bilgen/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
@@ -71,66 +79,81 @@
 
     <!-- Timeline Section -->
     <section id="timeline" class="timeline">
-    <div class="container">
-      <h2 class="section-title" data-i18n="timeline.title">Zaman Çizelgesi</h2>
-      <p class="section-subtitle" data-i18n="timeline.subtitle">Yolculuğumdan önemli duraklar</p>
-  
-      <div class="timeline-container">
-  
-        <!-- 2024 -->
-        <div class="timeline-item">
-          <div class="timeline-year">2024</div>
-          <div class="timeline-content">
-            <h3 data-i18n="timeline.2024.title">Lisans Eğitimime Başlangıç</h3>
-            <p data-i18n="timeline.2024.desc">Düzce Üniversitesi Yönetim Bilişim Sistemleri bölümünde lisans eğitimime başladım.</p>
-          </div>
-        </div>
-  
-        <!-- 2025 -->
-        <div class="timeline-item">
-          <div class="timeline-year">2025</div>
-          <div class="timeline-content">
-            <h3 data-i18n="timeline.2025.cs.title">C# ve SQL</h3>
-            <p data-i18n="timeline.2025.cs.desc">Visual Studio ve SQL Server kullanarak C# dilinde hastane ve kütüphane otomasyonları geliştirdim.</p>
-          </div>
-        </div>
-  
-        <!-- 2025 -->
-        <div class="timeline-item">
-          <div class="timeline-year">2025</div>
-          <div class="timeline-content">
-            <h3 data-i18n="timeline.2025.certs.title">🚀 Eğitim ve Sertifikalarım</h3>
-            <p data-i18n="timeline.2025.certs.desc">Udemy'de çeşitli alanlarda sertifikalar tamamladım. Üniversite topluluklarının eğitimlerine katılarak sertifikalar edindim.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-content">
-              <h3 data-i18n="timeline.2025.case.title">💡 Vaka Analizi Yarışması</h3>
-              <p data-i18n="timeline.2025.case.desc">'MISion Possible' takımıyla birlikte vaka analizi yarışmasına katıldım ve problem çözme, ekip çalışması becerilerimi geliştirdim.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-content">
-              <h3 data-i18n="timeline.2025.university.title">🎓 İkinci Üniversite</h3>
-              <p data-i18n="timeline.2025.university.desc">Atatürk Üniversitesi Bilgisayar Programcılığı bölümünde ikinci üniversite olarak eğitimime başladım.</p>
-            </div>
-          </div>
-        <div class="timeline-item">
-        <div class="timeline-year">2025</div>
-        <div class="timeline-content">
-          <h3 data-i18n="timeline.2025.portfolio.title">🌐 Kişisel Portfolio & Kartvizit Sitesi</h3>
-          <p data-i18n="timeline.2025.portfolio.desc">Karanlık tema, etkileşimler ve zaman çizelgesi tasarımıyla kişisel markamı HTML, CSS ve JavaScript kullanarak yayına aldım.</p>
-        </div>
-      </div>
+        <div class="container">
+            <h2 class="section-title" data-i18n="timeline.title">Zaman Çizelgesi</h2>
+            <p class="section-subtitle" data-i18n="timeline.subtitle">Yolculuğumdan önemli duraklar</p>
+            
+            <div class="timeline-wrapper">
+                <!-- 2024 -->
+                <div class="timeline-card" data-reveal>
+                    <div class="timeline-card-header">
+                        <span class="timeline-year-badge">2024</span>
+                        <div class="timeline-card-line"></div>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3 data-i18n="timeline.2024.title">Lisans Eğitimime Başlangıç</h3>
+                        <p data-i18n="timeline.2024.desc">Düzce Üniversitesi Yönetim Bilişim Sistemleri bölümünde lisans eğitimime başladım.</p>
+                    </div>
+                </div>
 
-    </div>
-  </div>
-</section>
-      </div>
-    </div>
-  </section>
+                <!-- 2025 -->
+                <div class="timeline-card" data-reveal>
+                    <div class="timeline-card-header">
+                        <span class="timeline-year-badge">2025</span>
+                        <div class="timeline-card-line"></div>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3 data-i18n="timeline.2025.cs.title">C# ve SQL</h3>
+                        <p data-i18n="timeline.2025.cs.desc">Visual Studio ve SQL Server kullanarak C# dilinde hastane ve kütüphane otomasyonları geliştirdim.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-card" data-reveal>
+                    <div class="timeline-card-header">
+                        <span class="timeline-year-badge">2025</span>
+                        <div class="timeline-card-line"></div>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3 data-i18n="timeline.2025.certs.title">🚀 Eğitim ve Sertifikalarım</h3>
+                        <p data-i18n="timeline.2025.certs.desc">Udemy'de çeşitli alanlarda sertifikalar tamamladım. Üniversite topluluklarının eğitimlerine katılarak sertifikalar edindim.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-card" data-reveal>
+                    <div class="timeline-card-header">
+                        <span class="timeline-year-badge">2025</span>
+                        <div class="timeline-card-line"></div>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3 data-i18n="timeline.2025.case.title">💡 Vaka Analizi Yarışması</h3>
+                        <p data-i18n="timeline.2025.case.desc">'MISion Possible' takımıyla birlikte vaka analizi yarışmasına katıldım ve problem çözme, ekip çalışması becerilerimi geliştirdim.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-card" data-reveal>
+                    <div class="timeline-card-header">
+                        <span class="timeline-year-badge">2025</span>
+                        <div class="timeline-card-line"></div>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3 data-i18n="timeline.2025.university.title">🎓 İkinci Üniversite</h3>
+                        <p data-i18n="timeline.2025.university.desc">Atatürk Üniversitesi Bilgisayar Programcılığı bölümünde ikinci üniversite olarak eğitimime başladım.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-card" data-reveal>
+                    <div class="timeline-card-header">
+                        <span class="timeline-year-badge">2025</span>
+                        <div class="timeline-card-line"></div>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3 data-i18n="timeline.2025.portfolio.title">🌐 Kişisel Portfolio & Kartvizit Sitesi</h3>
+                        <p data-i18n="timeline.2025.portfolio.desc">Karanlık tema, etkileşimler ve zaman çizelgesi tasarımıyla kişisel markamı HTML, CSS ve JavaScript kullanarak yayına aldım.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Skills Section (badged progress bars) -->
     <section id="skills" aria-label="Yetenekler">
@@ -201,9 +224,9 @@
 
     <!-- Certificates Section (Tailwind) moved below Skills -->
     <section id="certificates" class="bg-black text-white">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 class="section-title text-left mb-2" data-i18n="certificates.title">Sertifikalar</h2>
-        <p class="mt-2 text-gray-400 text-sm mb-8" data-i18n="certificates.subtitle">Tamamladığım eğitim ve sertifika programları</p>
+      <div class="container certificates-container">
+        <h2 class="section-title text-left" data-i18n="certificates.title">Sertifikalar</h2>
+        <p class="section-subtitle text-left" data-i18n="certificates.subtitle">Tamamladığım eğitim ve sertifika programları</p>
 
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Udemy: Uygulama Geliştirerek C# Öğrenin -->
@@ -310,9 +333,23 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/salih-bilgen/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/bilgensalih40-design" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:bilgensalih74@gmail.com" class="footer-social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
             <p>2025 Salih Bilgen | All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <script src="script.js"></script>
 </body>

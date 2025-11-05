@@ -254,14 +254,79 @@ const timelineObserver = new IntersectionObserver((entries) => {
     rootMargin: '0px 0px -100px 0px'
 });
 
+// Scroll Progress Bar
+function updateScrollProgress() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        scrollProgress.style.width = `${scrolled}%`;
+    }
+}
+
+window.addEventListener('scroll', updateScrollProgress);
+window.addEventListener('load', updateScrollProgress);
+
+// Page Loader
+window.addEventListener('load', () => {
+    const pageLoader = document.getElementById('pageLoader');
+    if (pageLoader) {
+        setTimeout(() => {
+            pageLoader.classList.add('hidden');
+            // Remove from DOM after animation completes
+            setTimeout(() => {
+                pageLoader.remove();
+            }, 600);
+        }, 1000);
+    }
+});
+
+// Enhanced Intersection Observer for all scroll animations
+const enhancedObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+            enhancedObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     // Render skills then setup its observer
     renderSkills();
     setupSkillsObserver();
-    const skillItems = document.querySelectorAll('.skill-item');
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    // Observe all project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        enhancedObserver.observe(card);
+    });
+    
+    // Observe timeline cards
+    const timelineCards = document.querySelectorAll('.timeline-card[data-reveal]');
+    timelineCards.forEach((card, index) => {
+        setTimeout(() => {
+            timelineObserver.observe(card);
+        }, index * 100);
+    });
+    
+    // Observe contact form
     const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.style.opacity = '0';
+        contactForm.style.transform = 'translateY(30px)';
+        contactForm.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        enhancedObserver.observe(contactForm);
+    }
+    
     const contactSection = document.querySelector('.contact');
     const skillsSection = document.querySelector('#skills');
     
@@ -275,6 +340,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contactSection.style.opacity = '1';
         contactSection.style.visibility = 'visible';
     }
+    
+    // Observe certificate cards
+    const certificateCards = document.querySelectorAll('.certificate-card');
+    certificateCards.forEach(card => {
+        enhancedObserver.observe(card);
+    });
     
     // Animate legacy .skill-item blocks (if any remained)
     skillItems.forEach((el, index) => {
@@ -293,9 +364,11 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
     
-    // Animate timeline items with staggered effect
-    timelineItems.forEach(item => {
-        timelineObserver.observe(item);
+    // Animate timeline cards with staggered effect
+    timelineCards.forEach((card, index) => {
+        setTimeout(() => {
+            timelineObserver.observe(card);
+        }, index * 100);
     });
     
     // Animate contact form with fallback
@@ -365,7 +438,7 @@ const translations = {
         },
         hero: {
             subtitle: "Yönetim Bilişim Sistemleri Öğrencisi",
-            description: "Ben Salih Bilgen, Yönetim Bilişim Sistemleri öğrencisiyim. Eğitimim sırasında edindiğim teorik bilgileri, C# ve SQL kullanarak projeler geliştirerek pratiğe döküyorum. Sadece kod yazmakla kalmayıp, teknolojinin iş dünyasındaki rolünü de derinden anlamak için kendimi iş analistliği ve yapay zekâ alanlarında aktif olarak geliştiriyorum. Hedefim, yazılım bilgimle iş süreçleri arasındaki köprüyü kurmak ve teknoloji odaklı çözümler üreterek iş dünyasına değer katmaktır. Bu doğrultuda, sürekli öğrenmeye ve yeni gelişmeleri araştırmaya açık bir profesyonel olarak kariyerimi inşa ediyorum."
+            description: "Ben Salih Bilgen. Yönetim Bilişim Sistemleri öğrencisiyim.<br>Eğitimimde edindiğim bilgileri projeler geliştirerek uyguluyorum.<br>Teknolojinin iş dünyasındaki etkisini anlamak için iş analistliği ve yapay zekâ konularında kendimi geliştiriyorum.<br>Amacım, yazılım bilgimle iş süreçlerini birleştirip teknolojiyle değer üreten çözümler geliştirmek.<br>Sürekli öğrenmeye açık biri olarak kariyerimi bu yönde ilerletiyorum."
         },
         timeline: {
             title: "Zaman Çizelgesi",
@@ -485,7 +558,7 @@ const translations = {
         },
         hero: {
             subtitle: "Management Information Systems Student",
-            description: "I am Salih Bilgen, a Management Information Systems student. I apply the theoretical knowledge I gained during my education by developing projects using C# and SQL. I not only write code but also actively develop myself in business analysis and artificial intelligence to deeply understand the role of technology in the business world. My goal is to bridge the gap between my software knowledge and business processes, creating technology-oriented solutions that add value to the business world. In this direction, I am building my career as a professional who is open to continuous learning and researching new developments."
+            description: "I am Salih Bilgen. I am a Management Information Systems student.<br>I apply the knowledge I gained in my education by developing projects.<br>I am developing myself in business analysis and artificial intelligence topics to understand the impact of technology in the business world.<br>My goal is to combine my software knowledge with business processes and develop solutions that create value with technology.<br>I am advancing my career in this direction as someone who is open to continuous learning."
         },
         timeline: {
             title: "Timeline",
@@ -612,7 +685,12 @@ function setLanguage(lang) {
             translation = translation?.[k];
         }
         if (translation) {
-            el.textContent = translation;
+            // Check if translation contains HTML (like <br> tags)
+            if (typeof translation === 'string' && (translation.includes('<br>') || translation.includes('<strong>') || translation.includes('<'))) {
+                el.innerHTML = translation;
+            } else {
+                el.textContent = translation;
+            }
         }
     });
     
