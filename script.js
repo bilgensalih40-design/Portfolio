@@ -254,6 +254,17 @@ const timelineObserver = new IntersectionObserver((entries) => {
     rootMargin: '0px 0px -100px 0px'
 });
 
+// Email Link Handler
+document.addEventListener('DOMContentLoaded', () => {
+    const emailLink = document.getElementById('emailLink');
+    if (emailLink) {
+        emailLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Bu alan daha gelişim aşamasındadır.');
+        });
+    }
+});
+
 // Scroll Progress Bar
 function updateScrollProgress() {
     const scrollProgress = document.getElementById('scrollProgress');

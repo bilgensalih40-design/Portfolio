@@ -333,64 +333,35 @@ body {
 }
 
 .profile-image::before {
-    content: '';
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--primary-color));
-    background-size: 200% 200%;
-    animation: rotate 8s linear infinite;
-    opacity: 0.3;
-    z-index: -1;
-    filter: blur(20px);
+    display: none;
 }
 
 .profile-image::after {
-    content: '';
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: var(--primary-color);
-    border-right-color: var(--secondary-color);
-    animation: rotate 3s linear infinite;
-    z-index: -1;
+    display: none;
 }
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 .profile-image img {
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    border: 5px solid rgba(255, 255, 255, 0.1);
+    border: none;
     box-shadow: 
-        0 0 60px rgba(0, 206, 209, 0.5),
-        0 0 120px rgba(0, 206, 209, 0.3),
-        inset 0 0 30px rgba(0, 206, 209, 0.2);
+        0 0 40px rgba(0, 206, 209, 0.3),
+        0 0 80px rgba(0, 206, 209, 0.15);
     object-fit: cover;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
-    background: linear-gradient(135deg, rgba(0, 206, 209, 0.1), rgba(32, 178, 170, 0.1));
+    background: none;
+    outline: none;
 }
 
 .profile-image:hover img {
-    transform: scale(1.08) rotate(5deg);
-    border-color: rgba(0, 206, 209, 0.5);
+    transform: scale(1.05);
     box-shadow: 
-        0 0 80px rgba(0, 206, 209, 0.7),
-        0 0 150px rgba(0, 206, 209, 0.4),
-        inset 0 0 40px rgba(0, 206, 209, 0.3);
+        0 0 60px rgba(0, 206, 209, 0.4),
+        0 0 100px rgba(0, 206, 209, 0.2);
 }
 
 .hero-title {
@@ -447,15 +418,17 @@ body {
 }
 
 .hero-description {
-    font-size: 1.15rem;
-    line-height: 2;
+    font-size: 1.1rem;
+    line-height: 1.9;
     margin-bottom: 3rem;
     opacity: 0.9;
-    max-width: 700px;
+    max-width: 680px;
     margin-left: auto;
     margin-right: auto;
     animation: fadeInUp 0.8s ease-out 0.8s both;
     color: rgba(255, 255, 255, 0.85);
+    text-align: left;
+    padding: 0 1rem;
 }
 
 .social-links {
