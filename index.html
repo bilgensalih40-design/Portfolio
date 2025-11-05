@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALİH BİLGEN</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Salih Bilgen</div>
+                <ul class="nav-menu">
+                    <li><a href="#home" data-i18n="nav.home">Ana Sayfa</a></li>
+                    <li><a href="#timeline" data-i18n="nav.timeline">Zaman Çizelgesi</a></li>
+                    <li><a href="#skills" data-i18n="nav.skills">Yetenekler</a></li>
+                    <li><a href="#projects" data-i18n="nav.projects">Projelerim</a></li>
+                    <li><a href="#certificates" data-i18n="nav.certificates">Sertifikalar</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">İletişim</a></li>
+                </ul>
+                <div class="language-selector">
+                    <button id="langToggle" class="lang-btn" aria-label="Change Language">
+                        <i class="fas fa-globe"></i> <span id="currentLang">TR</span>
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <img src="salihbilgen.jpg" alt="Profil Fotoğrafı" id="profile-img">
+                </div>
+                <h1 class="hero-title">Salih Bilgen</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Yönetim Bilişim Sistemleri Öğrencisi</p>
+                <p class="hero-description" data-i18n="hero.description">
+                    Ben Salih Bilgen, Yönetim Bilişim Sistemleri öğrencisiyim. Eğitimim sırasında edindiğim teorik bilgileri, C# ve SQL kullanarak projeler geliştirerek pratiğe döküyorum.
+                   Sadece kod yazmakla kalmayıp, teknolojinin iş dünyasındaki rolünü de derinden anlamak için kendimi iş analistliği ve yapay zekâ alanlarında aktif olarak geliştiriyorum.
+                    Hedefim, yazılım bilgimle iş süreçleri arasındaki köprüyü kurmak ve teknoloji odaklı çözümler üreterek iş dünyasına değer katmaktır. Bu doğrultuda, sürekli öğrenmeye ve yeni gelişmeleri araştırmaya açık bir profesyonel olarak kariyerimi inşa ediyorum.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/salih-bilgen/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/bilgensalih40-design" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:bilgensalih74@gmail.com" class="social-link" aria-label="E-posta">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
+    <div class="container">
+      <h2 class="section-title" data-i18n="timeline.title">Zaman Çizelgesi</h2>
+      <p class="section-subtitle" data-i18n="timeline.subtitle">Yolculuğumdan önemli duraklar</p>
+  
+      <div class="timeline-container">
+  
+        <!-- 2024 -->
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content">
+            <h3 data-i18n="timeline.2024.title">Lisans Eğitimime Başlangıç</h3>
+            <p data-i18n="timeline.2024.desc">Düzce Üniversitesi Yönetim Bilişim Sistemleri bölümünde lisans eğitimime başladım.</p>
+          </div>
+        </div>
+  
+        <!-- 2025 -->
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-content">
+            <h3 data-i18n="timeline.2025.cs.title">C# ve SQL</h3>
+            <p data-i18n="timeline.2025.cs.desc">Visual Studio ve SQL Server kullanarak C# dilinde hastane ve kütüphane otomasyonları geliştirdim.</p>
+          </div>
+        </div>
+  
+        <!-- 2025 -->
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-content">
+            <h3 data-i18n="timeline.2025.certs.title">🚀 Eğitim ve Sertifikalarım</h3>
+            <p data-i18n="timeline.2025.certs.desc">Udemy'de çeşitli alanlarda sertifikalar tamamladım. Üniversite topluluklarının eğitimlerine katılarak sertifikalar edindim.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-content">
+              <h3 data-i18n="timeline.2025.case.title">💡 Vaka Analizi Yarışması</h3>
+              <p data-i18n="timeline.2025.case.desc">'MISion Possible' takımıyla birlikte vaka analizi yarışmasına katıldım ve problem çözme, ekip çalışması becerilerimi geliştirdim.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-content">
+              <h3 data-i18n="timeline.2025.university.title">🎓 İkinci Üniversite</h3>
+              <p data-i18n="timeline.2025.university.desc">Atatürk Üniversitesi Bilgisayar Programcılığı bölümünde ikinci üniversite olarak eğitimime başladım.</p>
+            </div>
+          </div>
+        <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <h3 data-i18n="timeline.2025.portfolio.title">🌐 Kişisel Portfolio & Kartvizit Sitesi</h3>
+          <p data-i18n="timeline.2025.portfolio.desc">Karanlık tema, etkileşimler ve zaman çizelgesi tasarımıyla kişisel markamı HTML, CSS ve JavaScript kullanarak yayına aldım.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+      </div>
+    </div>
+  </section>
+
+    <!-- Skills Section (badged progress bars) -->
+    <section id="skills" aria-label="Yetenekler">
+        <div class="container">
+            <h2 data-i18n="skills.title">Yetenekler</h2>
+            <p class="subtitle" data-i18n="skills.subtitle">Seviyeler günceldir; gelişim odağındayım.</p>
+            <div class="skills-grid" id="skillsGrid"><!-- JS renders here --></div>
+            <p class="last-updated"><span data-i18n="skills.lastUpdated">Son güncelleme</span>: <span id="skillsUpdated"></span></p>
+        </div>
+    </section>
+
+    <!-- Projects Section (Tailwind) -->
+    <section id="projects" class="bg-black text-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="section-title text-left mb-4" data-i18n="projects.title">Projelerim</h2>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-teal-500/30 hover:border-teal-400/40 hover:bg-white/8">
+            <div class="aspect-[16/9] overflow-hidden relative">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+              <img src="https://www.medisoft.com.tr/wp-content/uploads/2018/02/slider_customservices-1024x461.jpg" alt="Proje görseli" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            </div>
+            <div class="p-6 relative z-20">
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-300 transition-colors" data-i18n="projects.hospital.title">Hastane Yönetim Otomasyonu</h3>
+              <p class="text-sm text-gray-300 leading-relaxed" data-i18n="projects.hospital.desc">Randevu, hasta ve personel süreçlerini yöneten, rol tabanlı yetkilendirmeye sahip masaüstü uygulaması.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">C#</span>
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">SQL Server</span>
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">WinForms/WPF</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-teal-500/30 hover:border-teal-400/40 hover:bg-white/8">
+            <div class="aspect-[16/9] overflow-hidden relative">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Proje görseli" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            </div>
+            <div class="p-6 relative z-20">
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-300 transition-colors" data-i18n="projects.library.title">Kütüphane Yönetim Otomasyonu</h3>
+              <p class="text-sm text-gray-300 leading-relaxed" data-i18n="projects.library.desc">Üyelik, ödünç-iade ve raporlama modülleri ile yönetimi kolaylaştıran uygulama.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">C#</span>
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">Entity Framework</span>
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">SQL Server</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-teal-500/30 hover:border-teal-400/40 hover:bg-white/8">
+            <div class="aspect-[16/9] overflow-hidden bg-black relative">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+              <img src="portfolio.jpg" alt="Kişisel Portfolyo Sitesi" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'; this.parentElement.style.background='#000';" />
+            </div>
+            <div class="p-6 relative z-20">
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-300 transition-colors" data-i18n="projects.portfolio.title">Kişisel Portfolyo Sitesi</h3>
+              <p class="text-sm text-gray-300 leading-relaxed" data-i18n="projects.portfolio.desc">Karanlık tema, animasyonlar ve erişilebilir odak stilleriyle modern kişisel site.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">HTML</span>
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">Tailwind</span>
+                <span class="rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">JavaScript</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section (Tailwind) moved below Skills -->
+    <section id="certificates" class="bg-black text-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="section-title text-left mb-2" data-i18n="certificates.title">Sertifikalar</h2>
+        <p class="mt-2 text-gray-400 text-sm mb-8" data-i18n="certificates.subtitle">Tamamladığım eğitim ve sertifika programları</p>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Udemy: Uygulama Geliştirerek C# Öğrenin -->
+          <article class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 px-6 py-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/40 hover:shadow-teal-500/30 hover:bg-white/8">
+            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-teal-500/20 backdrop-blur-sm text-teal-300 border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M8.59 16.59 3.999 12l4.59-4.59L7.17 6l-6 6 6 6 1.42-1.41Zm6.82 0 4.59-4.59-4.59-4.59L16.83 6l6 6-6 6-1.42-1.41Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-white leading-snug group-hover:text-teal-300 transition-colors" data-i18n="certificates.csharp1.title">Uygulama Geliştirerek C# Öğrenin: A'dan Z'ye Eğitim Seti</h3>
+            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">Udemy</div>
+          </article>
+
+          <article class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 px-6 py-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/40 hover:shadow-teal-500/30 hover:bg-white/8">
+            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-teal-500/20 backdrop-blur-sm text-teal-300 border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M9 3H7v4H3v2h4v6H3v2h4v4h2v-4h6v4h2v-4h4v-2h-4V9h4V7h-4V3h-2v4H9V3Zm6 6v6H9V9h6Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-white leading-snug group-hover:text-teal-300 transition-colors" data-i18n="certificates.csharp2.title">C# Programlama: Visual Studio 2022 ile Sıfırdan Uzmanlığa C#</h3>
+            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">Udemy</div>
+          </article>
+
+          <article class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 px-6 py-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/40 hover:shadow-teal-500/30 hover:bg-white/8">
+            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-teal-500/20 backdrop-blur-sm text-teal-300 border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M7 3a3 3 0 1 1 0 6H5v6h2a3 3 0 1 1 0 6H3v-2h4a1 1 0 1 0 0-2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2a1 1 0 1 0 0-2H3V3h4Zm10 6h-4V7h4a2 2 0 1 0 0-4h-4V1h4a4 4 0 1 1 0 8Zm0 14h-4v-2h4a2 2 0 1 0 0-4h-4v-2h4a4 4 0 1 1 0 8Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-white leading-snug group-hover:text-teal-300 transition-colors" data-i18n="certificates.algorithm.title">Algoritma Geliştirme Eğitimi ve Programlamaya Giriş</h3>
+            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">Udemy</div>
+          </article>
+
+          <article class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 px-6 py-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/40 hover:shadow-teal-500/30 hover:bg-white/8">
+            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-teal-500/20 backdrop-blur-sm text-teal-300 border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 2v16h10V4H7Zm5 15a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-white leading-snug group-hover:text-teal-300 transition-colors" data-i18n="certificates.flutter.title">Google Flutter ve Dart Programlama Dili Temel Eğitimi</h3>
+            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">Udemy</div>
+          </article>
+
+          <article class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 px-6 py-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/40 hover:shadow-teal-500/30 hover:bg-white/8">
+            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-teal-500/20 backdrop-blur-sm text-teal-300 border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M11 7h2v2h-2V7Zm0 4h2v6h-2v-6Zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-white leading-snug group-hover:text-teal-300 transition-colors" data-i18n="certificates.btk1.title">Bilgi Teknolojilerine Giriş</h3>
+            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">BTK Akademi</div>
+          </article>
+
+          <article class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 px-6 py-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/40 hover:shadow-teal-500/30 hover:bg-white/8">
+            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-teal-500/20 backdrop-blur-sm text-teal-300 border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M10 3h4v4h-4V3Zm0 7h4v4h-4v-4ZM3 10h4v4H3v-4Zm14 0h4v4h-4v-4ZM10 17h4v4h-4v-4Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-white leading-snug group-hover:text-teal-300 transition-colors" data-i18n="certificates.btk2.title">Algoritma Programlama ve Veri Yapılarına Girişi</h3>
+            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">BTK Akademi</div>
+          </article>
+
+          <article class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-teal-500/20 px-6 py-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/40 hover:shadow-teal-500/30 hover:bg-white/8">
+            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-teal-500/20 backdrop-blur-sm text-teal-300 border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M2 19h16a4 4 0 0 0 0-8h-1V7H2v12Zm2-10h11v6h3a2 2 0 0 1 0 4H4V9Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-white leading-snug group-hover:text-teal-300 transition-colors" data-i18n="certificates.java.title">JAVA ile Programlamaya Giriş</h3>
+            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500/20 backdrop-blur-sm text-teal-300 px-3 py-1.5 text-xs font-semibold border border-teal-500/30 hover:bg-teal-500/30 transition-all">BTK Akademi</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact.title">İletişim</h2>
+            <p class="section-subtitle" data-i18n="contact.subtitle">Benimle iletişime geçmek için formu doldurabilirsin.</p>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.form.name">Ad Soyad</label>
+                        <input type="text" id="name" name="name" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Ad Soyad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="contact.form.email">E-posta</label>
+                        <input type="email" id="email" name="email" data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="E-posta" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.form.message">Mesaj</label>
+                        <textarea id="message" name="message" rows="5" data-i18n-placeholder="contact.form.messagePlaceholder" placeholder="Mesajınız" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="contact.form.submit">Gönder</span>
+                    </button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="bilgensalih74@gmail.com" style="color: inherit; text-decoration: underline;">bilgensalih74@gmail.com</a></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn: <a href="https://www.linkedin.com/in/salih-bilgen/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">linkedin.com/in/salih-bilgen</a></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub: <a href="https://github.com/bilgensalih40-design" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">github.com/bilgensalih40-design</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>2025 Salih Bilgen | All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
