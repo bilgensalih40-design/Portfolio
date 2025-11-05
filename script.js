@@ -110,6 +110,9 @@ function renderSkills() {
   const grid = document.getElementById('skillsGrid');
   if (!grid) return;
 
+  // Clear existing content to prevent duplicates
+  grid.innerHTML = '';
+
   const groups = ["Programlama", "Veritabanı", "Web", "Araçlar"];
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const lang = currentLang || 'tr';
@@ -784,12 +787,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currentLang = currentLang === 'tr' ? 'en' : 'tr';
             setLanguage(currentLang);
             // Re-render skills after language change
-            const skillsGrid = document.getElementById('skillsGrid');
-            if (skillsGrid) {
-                skillsGrid.innerHTML = '';
-                renderSkills();
-                setupSkillsObserver();
-            }
+            renderSkills();
+            setupSkillsObserver();
         });
     }
     
