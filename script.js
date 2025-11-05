@@ -257,10 +257,26 @@ const timelineObserver = new IntersectionObserver((entries) => {
 // Email Link Handler
 document.addEventListener('DOMContentLoaded', () => {
     const emailLink = document.getElementById('emailLink');
+    const footerEmailLink = document.getElementById('footerEmailLink');
+    
+    const showEmailMessage = () => {
+        const message = currentLang === 'en' 
+            ? 'This area is still under development.' 
+            : 'Bu alan daha gelişim aşamasındadır.';
+        alert(message);
+    };
+    
     if (emailLink) {
         emailLink.addEventListener('click', function(e) {
             e.preventDefault();
-            alert('Bu alan daha gelişim aşamasındadır.');
+            showEmailMessage();
+        });
+    }
+    
+    if (footerEmailLink) {
+        footerEmailLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showEmailMessage();
         });
     }
 });
