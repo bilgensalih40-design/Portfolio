@@ -295,7 +295,8 @@
             <h2 class="section-title" data-i18n="contact.title">İletişim</h2>
             <p class="section-subtitle" data-i18n="contact.subtitle">Benimle iletişime geçmek için formu doldurabilirsin.</p>
             <div class="contact-content">
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwpwglyr" method="POST">
+                    <div id="formMessage" class="form-message" style="display: none;"></div>
                     <div class="form-group">
                         <label for="name" data-i18n="contact.form.name">Ad Soyad</label>
                         <input type="text" id="name" name="name" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Ad Soyad" required>
@@ -308,14 +309,14 @@
                         <label for="message" data-i18n="contact.form.message">Mesaj</label>
                         <textarea id="message" name="message" rows="5" data-i18n-placeholder="contact.form.messagePlaceholder" placeholder="Mesajınız" required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">
+                    <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> <span data-i18n="contact.form.submit">Gönder</span>
                     </button>
                 </form>
                 <div class="contact-info">
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
-                        <span>E-posta: <a href="bilgensalih74@gmail.com" style="color: inherit; text-decoration: underline;">bilgensalih74@gmail.com</a></span>
+                        <span>E-posta: <a href="javascript:void(0)" id="emailContactLink" style="color: inherit; text-decoration: underline; cursor: pointer;">bilgensalih74@gmail.com</a></span>
                     </div>
                     <div class="info-item">
                         <i class="fab fa-linkedin"></i>

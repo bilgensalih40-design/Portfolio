@@ -48,39 +48,141 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Contact Form Handling
+// Contact Form Handling with Formspree
 const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+const submitBtn = document.getElementById('submitBtn');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
         
         // Simple validation
-        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-            alert('Lütfen tüm alanları doldurun.');
+        const emptyFieldsMsg = currentLang === 'en' 
+            ? 'Please fill in all fields.' 
+            : 'Lütfen tüm alanları doldurun.';
+        if (name === '' || email === '' || message === '') {
+            showFormMessage(emptyFieldsMsg, 'error');
             return;
         }
         
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const invalidEmailMsg = currentLang === 'en'
+            ? 'Please enter a valid email address.'
+            : 'Lütfen geçerli bir e-posta adresi girin.';
         if (!emailRegex.test(email)) {
-            alert('Lütfen geçerli bir e-posta adresi girin.');
+            showFormMessage(invalidEmailMsg, 'error');
             return;
         }
         
-        // Here you would normally send the form data to a server
-        // For now, we'll just show a success message
-        alert('Mesajınız gönderildi! (Bu bir demo, gerçekte backend entegrasyonu gerekir)');
+        // Disable submit button and show loading
+        submitBtn.disabled = true;
+        const originalBtnText = submitBtn.innerHTML;
+        const sendingText = currentLang === 'en' ? 'Sending...' : 'Gönderiliyor...';
+        submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>${sendingText}</span>`;
+        hideFormMessage();
         
-        // Reset form
-        contactForm.reset();
+        try {
+            // Prepare form data
+            const formData = new FormData(contactForm);
+            
+            // Send to Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                showFormMessage('✅ Teşekkür Ederim. Size En Yakın Zamanda Geri Dönüş Sağlıyacağım.', 'success');
+                contactForm.reset();
+            } else {
+                const data = await response.json();
+                if (data.errors) {
+                    showFormMessage('❌ Hata oluştu: ' + data.errors.map(e => e.message).join(', '), 'error');
+                } else {
+                    showFormMessage('❌ Hata oluştu. Lütfen tekrar deneyin.', 'error');
+                }
+            }
+        } catch (error) {
+            showFormMessage('❌ Hata oluştu. İnternet bağlantınızı kontrol edin ve tekrar deneyin.', 'error');
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
     });
 }
+
+// Show form message
+function showFormMessage(message, type) {
+    if (!formMessage) return;
+    
+    formMessage.textContent = message;
+    formMessage.className = 'form-message ' + type;
+    formMessage.style.display = 'block';
+    
+    // Auto-hide after 5 seconds for success messages
+    if (type === 'success') {
+        setTimeout(() => {
+            hideFormMessage();
+        }, 5000);
+    }
+}
+
+// Hide form message
+function hideFormMessage() {
+    if (formMessage) {
+        formMessage.style.display = 'none';
+    }
+}
+
+// Email Contact Link Handler
+document.addEventListener('DOMContentLoaded', () => {
+    const emailContactLink = document.getElementById('emailContactLink');
+    if (emailContactLink) {
+        emailContactLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const email = 'bilgensalih74@gmail.com';
+            
+            // Create a temporary textarea to copy email
+            const textarea = document.createElement('textarea');
+            textarea.value = email;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // For mobile devices
+            
+            try {
+                document.execCommand('copy');
+                const copyMsg = currentLang === 'en' 
+                    ? `✅ Email copied to clipboard: ${email}` 
+                    : `✅ E-posta adresi kopyalandı: ${email}`;
+                alert(copyMsg);
+            } catch (err) {
+                // Fallback: show email in alert
+                const emailMsg = currentLang === 'en'
+                    ? `Email: ${email}`
+                    : `E-posta: ${email}`;
+                alert(emailMsg);
+            }
+            
+            document.body.removeChild(textarea);
+            return false;
+        });
+    }
+});
 
 // -----------------------------
 // Skills: Data + Render + Animations
@@ -693,7 +795,8 @@ const translations = {
                 emailPlaceholder: "Email",
                 message: "Message",
                 messagePlaceholder: "Your Message",
-                submit: "Send"
+                submit: "Send",
+                sending: "Sending..."
             }
         }
     }
