@@ -386,6 +386,143 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Tarihte Bugün Modal Handler
+document.addEventListener('DOMContentLoaded', () => {
+    const historyLink = document.getElementById('historyLink');
+    const historyModal = document.getElementById('historyModal');
+    const historyModalClose = document.getElementById('historyModalClose');
+    const historyLoading = document.getElementById('historyLoading');
+    const historyContent = document.getElementById('historyContent');
+    const historyError = document.getElementById('historyError');
+    const historyEvents = document.getElementById('historyEvents');
+
+    // Modal açma
+    if (historyLink) {
+        historyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openHistoryModal();
+        });
+    }
+
+    // Modal kapatma
+    if (historyModalClose) {
+        historyModalClose.addEventListener('click', closeHistoryModal);
+    }
+
+    // Modal dışına tıklayınca kapat
+    if (historyModal) {
+        historyModal.addEventListener('click', function(e) {
+            if (e.target === historyModal) {
+                closeHistoryModal();
+            }
+        });
+    }
+
+    // ESC tuşu ile kapat
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && historyModal && historyModal.classList.contains('active')) {
+            closeHistoryModal();
+        }
+    });
+
+    function openHistoryModal() {
+        if (historyModal) {
+            historyModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            loadHistoryEvents();
+        }
+    }
+
+    function closeHistoryModal() {
+        if (historyModal) {
+            historyModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    async function loadHistoryEvents() {
+        // Loading göster
+        if (historyLoading) historyLoading.style.display = 'block';
+        if (historyContent) historyContent.style.display = 'none';
+        if (historyError) historyError.style.display = 'none';
+
+        try {
+            const today = new Date();
+            const month = today.getMonth() + 1; // 1-12
+            const day = today.getDate(); // 1-31
+
+            // Wikipedia API - On This Day
+            // Türkçe Wikipedia için
+            const lang = currentLang === 'en' ? 'en' : 'tr';
+            const apiUrl = `https://api.wikimedia.org/feed/v1/wikipedia/${lang}/onthisday/all/${month}/${day}`;
+
+            const response = await fetch(apiUrl);
+            
+            if (!response.ok) {
+                throw new Error('API yanıtı alınamadı');
+            }
+
+            const data = await response.json();
+            
+            // Events (olaylar) varsa göster
+            if (data.events && data.events.length > 0) {
+                displayHistoryEvents(data.events);
+            } else {
+                throw new Error('Bugün için olay bulunamadı');
+            }
+        } catch (error) {
+            console.error('Tarihte bugün verisi yüklenirken hata:', error);
+            // Hata durumunda alternatif bir mesaj göster
+            if (historyError) {
+                historyError.style.display = 'block';
+                if (historyLoading) historyLoading.style.display = 'none';
+            }
+        }
+    }
+
+    function displayHistoryEvents(events) {
+        if (!historyEvents || !historyContent) return;
+
+        // İlk 10 olayı göster
+        const eventsToShow = events.slice(0, 10);
+        
+        historyEvents.innerHTML = '';
+
+        eventsToShow.forEach(event => {
+            const eventDiv = document.createElement('div');
+            eventDiv.className = 'history-event';
+
+            const yearDiv = document.createElement('div');
+            yearDiv.className = 'history-event-year';
+            yearDiv.textContent = event.year || 'Bilinmeyen Yıl';
+
+            const textDiv = document.createElement('div');
+            textDiv.className = 'history-event-text';
+            
+            // Wikipedia text'i temizle (HTML etiketlerini kaldır)
+            let text = event.text || event.pages?.[0]?.extract || 'Açıklama bulunamadı';
+            text = text.replace(/<[^>]*>/g, ''); // HTML etiketlerini kaldır
+            text = text.replace(/\[.*?\]/g, ''); // Köşeli parantez içeriğini kaldır
+            text = text.trim();
+            
+            // Eğer text çok uzunsa kısalt
+            if (text.length > 300) {
+                text = text.substring(0, 300) + '...';
+            }
+            
+            textDiv.textContent = text;
+
+            eventDiv.appendChild(yearDiv);
+            eventDiv.appendChild(textDiv);
+            historyEvents.appendChild(eventDiv);
+        });
+
+        // İçeriği göster
+        if (historyLoading) historyLoading.style.display = 'none';
+        if (historyContent) historyContent.style.display = 'block';
+    }
+});
+
 // Scroll Progress Bar
 function updateScrollProgress() {
     const scrollProgress = document.getElementById('scrollProgress');
@@ -566,7 +703,8 @@ const translations = {
             skills: "Yetenekler",
             projects: "Projelerim",
             certificates: "Sertifikalar",
-            contact: "İletişim"
+            contact: "İletişim",
+            history: "Tarihte Bugün"
         },
         hero: {
             subtitle: "Yönetim Bilişim Sistemleri Öğrencisi",
@@ -677,6 +815,15 @@ const translations = {
                 messagePlaceholder: "Mesajınız",
                 submit: "Gönder"
             }
+        },
+        history: {
+            title: "Tarihte Bugün",
+            loading: "Yükleniyor...",
+            error: "Veriler yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+        },
+        footer: {
+            thanks: "Teşekkür ederim, ziyaret ettiğin için 🙌",
+            rights: "Tüm hakları saklıdır."
         }
     },
     en: {
@@ -686,7 +833,8 @@ const translations = {
             skills: "Skills",
             projects: "Projects",
             certificates: "Certificates",
-            contact: "Contact"
+            contact: "Contact",
+            history: "On This Day"
         },
         hero: {
             subtitle: "Management Information Systems Student",
@@ -798,6 +946,15 @@ const translations = {
                 submit: "Send",
                 sending: "Sending..."
             }
+        },
+        history: {
+            title: "On This Day",
+            loading: "Loading...",
+            error: "An error occurred while loading data. Please try again later."
+        },
+        footer: {
+            thanks: "Thank you for visiting 🙌",
+            rights: "All rights reserved."
         }
     }
 };
@@ -897,5 +1054,39 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Set initial language
     setLanguage(currentLang);
+});
+
+// Footer: Update year and fade-in animation
+document.addEventListener('DOMContentLoaded', () => {
+    // Update copyright year
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Footer fade-in animation on scroll
+    const footer = document.getElementById('footer');
+    if (footer) {
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    footer.classList.add('visible');
+                    footerObserver.unobserve(footer);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        footerObserver.observe(footer);
+        
+        // Fallback: show footer after a delay if observer doesn't trigger
+        setTimeout(() => {
+            if (!footer.classList.contains('visible')) {
+                footer.classList.add('visible');
+            }
+        }, 2000);
+    }
 });
 

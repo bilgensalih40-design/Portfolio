@@ -72,6 +72,9 @@
                     <a href="#" id="emailLink" class="social-link" aria-label="E-posta">
                         <i class="fas fa-envelope"></i>
                     </a>
+                    <a href="#" id="historyLink" class="social-link" aria-label="Tarihte Bugün">
+                        <i class="fas fa-calendar-day"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -332,8 +335,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="container">
+            <div class="footer-thanks">
+                <p class="footer-thanks-text" data-i18n="footer.thanks">Teşekkür ederim, ziyaret ettiğin için 🙌</p>
+            </div>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/salih-bilgen/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
@@ -345,12 +351,41 @@
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
-            <p>2025 Salih Bilgen | All rights reserved.</p>
+            <div class="footer-copyright">
+                <p class="footer-copyright-text">
+                    © <span id="currentYear"></span> Salih Bilgen. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span>
+                </p>
+            </div>
         </div>
     </footer>
 
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Tarihte Bugün Modal -->
+    <div id="historyModal" class="history-modal">
+        <div class="history-modal-content">
+            <div class="history-modal-header">
+                <h2><i class="fas fa-calendar-day"></i> <span data-i18n="history.title">Tarihte Bugün</span></h2>
+                <button class="history-modal-close" id="historyModalClose" aria-label="Kapat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="history-modal-body">
+                <div id="historyLoading" class="history-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p data-i18n="history.loading">Yükleniyor...</p>
+                </div>
+                <div id="historyContent" class="history-content" style="display: none;">
+                    <div id="historyEvents"></div>
+                </div>
+                <div id="historyError" class="history-error" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p data-i18n="history.error">Veriler yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
